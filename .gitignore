@@ -60,3 +60,6 @@ typings/
 #Ignore keys
 config/keys.js
 
+node_modules/
+.claude/
+CLAUDE.local.md
