@@ -6,6 +6,17 @@ router.get("/login", (req, res) => {
   res.render("login", { user: req.user });
 });
 
+// auth status — JSON probe for current session state
+router.get("/status", (req, res) => {
+  if (req.isAuthenticated && req.isAuthenticated() && req.user) {
+    return res.json({
+      authenticated: true,
+      username: req.user.username ?? null,
+    });
+  }
+  return res.json({ authenticated: false, username: null });
+});
+
 // auth logout
 router.get("/logout", (req, res) => {
   // handle with passport

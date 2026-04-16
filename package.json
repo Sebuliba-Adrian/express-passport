@@ -4,7 +4,11 @@
   "description": "Course files for The Net Ninja OAuth playlist on YouTube",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   },
   "repository": {
     "type": "git",
