@@ -43,6 +43,13 @@ describe("GET /auth/status", () => {
     expect(res.status).toBe(200);
     expect(res.body).toEqual({ authenticated: true, username: "alice" });
   });
+
+  test("returns username:null when user has no username field", async () => {
+    const app = makeApp({ user: { googleId: "g1" } });
+    const res = await request(app).get("/auth/status");
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({ authenticated: true, username: null });
+  });
 });
 
 // Characterization test — pin down existing behavior we must NOT break.
